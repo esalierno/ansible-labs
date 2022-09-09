@@ -1,4 +1,4 @@
-#Ansible Labs
+# Ansible Labs
 ---
 
 ## Predisposizione ambiente Lab
