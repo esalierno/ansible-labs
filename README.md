@@ -7,6 +7,7 @@ Gli esercizi possono essere eseguiti in un ambiente lab virtuale creato automati
 I tool necessari e che dovranno essere preventivamente installati sono:
 * [VirtualBox](https://www.virtualbox.org)
 * [Vagrant](https://www.vagrantup.com)
+* [Microsoft Visual Studio Code](https://code.visualstudio.com/)
 
 
 ### Installazione VirtualBox
@@ -16,13 +17,31 @@ Eseguire una installazione standard, lasciando tutte le impostazioni di default.
 >Nel caso in cui sia installato Microsoft Hyper-V fare riferimento all'articolo [Le applicazioni di virtualizzazione non funzionano insieme a Hyper-V, Device Guard e Credential Guard](https://docs.microsoft.com/it-it/troubleshoot/windows-client/application-management/virtualization-apps-not-work-with-hyper-v)
 
 ### Installazione Vagrant
-Scaricare il pacchetto di installazione specifico per la propria piattaforma dal sito uffiziale di Vagrant https://www.vagrantup.com/downloads.
+Scaricare il pacchetto di installazione specifico per la propria piattaforma dal sito ufficiale di Vagrant https://www.vagrantup.com/downloads.
 Eseguire una installazione standard, lasciando le impostazioni di default. 
 Al termine dell'installazione sarà richiesto un riavvio del computer.
+
+### Installazione Microsoft Visual Studio Code
+L'installazione di MS Code non è un requisito fondamentale per la predisposizione dell'ambiente Lab, ma è suggerito in quanto permette di usare l'editor grafico per la modifica di file remoti (nel nostro caso presenti sulla macchina remota).
+Scaricare il pacchetto di installazione dal sito Microsoft https://code.visualstudio.com.
+Eseguire una installazione standard, lasciando le impostazioni di default.
+
+Avviare MS Code ed aprire la finestra per l'installazione delle estensioni, ed installare le due estensioni indicate di seguito.
+
+![Microsoft Code Extension](/images/mscode-1.png)
+
+Cercare l'estensione "Remote - SSH" ed installarla.
+
+![Microsoft Code Extension](/images/mscode-2.png)
+
+Cercare l'estensione "Ansible" ed installarla.
+
+![Microsoft Code Extension](/images/mscode-3.png)
 
 ### Verifica ambiente lab
 Le macchine virtuali sono definite e configurate tramite un file `Vagrantfile`.
 Il comando seguente inizializza un Vagrantfile con impostazioni di default utilizzando l'immagine di sistema operativo (box) specificata.
+Eseguire il comando da un terminale e all'interno di una nuova directory.
 
 ```
 C:\projects\vagrant-test>vagrant init centos/stream8
