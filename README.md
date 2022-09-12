@@ -14,7 +14,14 @@ I tool necessari e che dovranno essere preventivamente installati sono:
 Scaricare il pacchetto di installazione specifico per la propria piattaforma dal sito ufficiale di VirtualBox https://www.virtualbox.org/wiki/Downloads .
 Eseguire una installazione standard, lasciando tutte le impostazioni di default.
 
->Nel caso in cui sia installato Microsoft Hyper-V fare riferimento all'articolo [Le applicazioni di virtualizzazione non funzionano insieme a Hyper-V, Device Guard e Credential Guard](https://docs.microsoft.com/it-it/troubleshoot/windows-client/application-management/virtualization-apps-not-work-with-hyper-v)
+>***Piattaforma Windows:*** Nel caso in cui sia installato Microsoft Hyper-V fare riferimento all'articolo [Le applicazioni di virtualizzazione non funzionano insieme a Hyper-V, Device Guard e Credential Guard](https://docs.microsoft.com/it-it/troubleshoot/windows-client/application-management/virtualization-apps-not-work-with-hyper-v)
+
+>***Piattaforma MacOS:*** VirtualBox installa delle estensioni kernel il cui caricamento deve essere esplicitamente abilitato.
+> Aprire System Preferences e selezionare la sezione Security & Privacy, viene visualizzata l'estensione bloccata dal sistema e il pulsante per poterla abilitare.
+![MacOS System Preferences - Security & Privacy](/images/vb-mac-1.png)
+> 
+>Eseguire il riavvio del MacOS dopo aver abilitato le estensioni VirtualBox.
+
 
 ### Installazione Vagrant
 Scaricare il pacchetto di installazione specifico per la propria piattaforma dal sito ufficiale di Vagrant https://www.vagrantup.com/downloads.
@@ -33,6 +40,13 @@ Avviare MS Code ed aprire la finestra per l'installazione delle estensioni, ed i
 Cercare l'estensione "Remote - SSH" ed installarla.
 
 ![Microsoft Code Extension](/images/mscode-2.png)
+
+>***Piattaforma Windows:*** L'estensione "Remote - SSH" richiede l'installazione del client OpenSSH.
+>Da una sessione PowerShell eseguita come Administrator eseguire il comando seguente (rif. [Get started with OpenSSH for Windows](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse))
+
+```powershell
+Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+```
 
 Cercare l'estensione "Ansible" ed installarla.
 
