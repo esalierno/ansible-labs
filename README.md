@@ -30,8 +30,8 @@ Al termine dell'installazione sarà richiesto un riavvio del computer.
 
 >***Configurazione Proxy:*** Nel caso in cui l'accesso a internet sia permesso esclusivamente per mezzo di un http proxy è necessario integrare la configurazione con la definizione di alcune variabili d'ambiente e l'installazione di un plugin Vagrant.
 >
->* Configurare le variabili d'ambiente: 
-http_proxy=http://user:password@proxyhost:port
+>* Configurare le variabili d'ambiente:
+>http_proxy=http://user:password@proxyhost:port
 https_proxy=http://user:password@proxyhost:port
 VAGRANT_HTTP_PROXY=http://user:password@proxyhost:port
 VAGRANT_HTTPS_PROXY=http://user:password@proxyhost:port
@@ -75,6 +75,13 @@ A `Vagrantfile` has been placed in this directory. You are now
 ready to `vagrant up` your first virtual environment! Please read
 the comments in the Vagrantfile as well as documentation on
 `vagrantup.com` for more information on using Vagrant.
+```
+
+Modificare il file Vagrantfile aggiungendo la configurazione `config.vm.box_download_insecure=true`, come segue:
+
+```
+  config.vm.box = "centos/stream8"
+  config.vm.box_download_insecure=true
 ```
 
 Il comando `vagrant up` esegue la creazione e attivazione dell'ambiente virtuale, in particolare provvede a:
