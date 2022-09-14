@@ -28,6 +28,18 @@ Scaricare il pacchetto di installazione specifico per la propria piattaforma dal
 Eseguire una installazione standard, lasciando le impostazioni di default. 
 Al termine dell'installazione sarà richiesto un riavvio del computer.
 
+>***Configurazione Proxy:*** Nel caso in cui l'accesso a internet sia permesso esclusivamente per mezzo di un http proxy è necessario integrare la configurazione con la definizione di alcune variabili d'ambiente e l'installazione di un plugin Vagrant.
+>
+>* Configurare le variabili d'ambiente: 
+http_proxy=http://user:password@proxyhost:port
+https_proxy=http://user:password@proxyhost:port
+VAGRANT_HTTP_PROXY=http://user:password@proxyhost:port
+VAGRANT_HTTPS_PROXY=http://user:password@proxyhost:port
+>
+>* Installare il plugin vagrant-proxyconf:
+L'installazione viene fatta da command line eseguendo il comando
+`vagrant plugin install vagrant-proxyconf`
+
 ### Installazione Microsoft Visual Studio Code
 L'installazione di MS Code non è un requisito fondamentale per la predisposizione dell'ambiente Lab, ma è suggerito in quanto permette di usare l'editor grafico per la modifica di file remoti (nel nostro caso presenti sulla macchina remota).
 Scaricare il pacchetto di installazione dal sito Microsoft https://code.visualstudio.com.
@@ -69,7 +81,6 @@ Il comando `vagrant up` esegue la creazione e attivazione dell'ambiente virtuale
 * Scaricare/aggiornare il box specificato nel Vagrantfile
 * Creare la VM nell'ambiente di virtualizzazione configurato (VirtualBox)
 * Attivare e configurare la VM
-
 
 ```
 C:\projects\vagrant-test>vagrant up
