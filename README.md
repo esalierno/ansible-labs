@@ -31,11 +31,10 @@ Al termine dell'installazione sarà richiesto un riavvio del computer.
 >***Configurazione Proxy:*** Nel caso in cui l'accesso a internet sia permesso esclusivamente per mezzo di un http proxy è necessario integrare la configurazione con la definizione di alcune variabili d'ambiente e l'installazione di un plugin Vagrant.
 >
 >* Configurare le variabili d'ambiente:
->
->http_proxy=http://user:password@proxyhost:port
->https_proxy=http://user:password@proxyhost:port
->VAGRANT_HTTP_PROXY=http://user:password@proxyhost:port
->VAGRANT_HTTPS_PROXY=http://user:password@proxyhost:port
+>   * http_proxy=http://user:password@proxyhost:port
+>   * https_proxy=http://user:password@proxyhost:port
+>   * VAGRANT_HTTP_PROXY=http://user:password@proxyhost:port
+>   * VAGRANT_HTTPS_PROXY=http://user:password@proxyhost:port
 >
 >* Installare il plugin vagrant-proxyconf:
 L'installazione viene fatta da command line eseguendo il comando
