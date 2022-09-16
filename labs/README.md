@@ -20,12 +20,16 @@ PS C:\projects\ansible-labs>
 ## Indice Labs
 
 * [Lab0: Installazione ansible sul control node](lab0/README.md)
+  
   Predisposizione del control node e i managed host per l'esecuzione dei playbook Ansible.
 * [Lab1: Ansible inventory e primo playbook](lab1/README.md)
+  
   Overview sulla modalità di selezione dei managed host dall'inventory e implementazione del primo playbook Ansible.
 * [Lab2: Variabili e fact](lab2/README.md)
+  
   Overview sulle variabili e sulle capacità di Ansible per recuperare informazioni dai managed host.
 * [Lab3: Copia file e modifica file di configurazione](lab3/README.md)
+  
   Overview sui moduli per la copia di file sui managed host e per la configurazione dinamica di file di configurazione.
 
    
