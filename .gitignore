@@ -1,0 +1,5 @@
+
+.vagrant/
+know_hosts
+ansible_id_rsa.pub
+note

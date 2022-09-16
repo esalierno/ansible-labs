@@ -1,0 +1,20 @@
+---
+# file: install_webserver.yml
+# Play 1: Enable apache httpd service
+#         Install httpd package, enable and start httpd service
+
+- name: Enable apache httpd service
+  hosts: 'pweb01.example.com'
+  become: yes
+
+  tasks:
+    - name: Install httpd package
+      ansible.builtin.yum:
+        name: httpd
+        state: present
+      
+    - name: Enable and start httpd service 
+      ansible.builtin.service:
+        name: httpd
+        enabled: yes
+        state: started
