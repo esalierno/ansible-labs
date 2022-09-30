@@ -21,6 +21,11 @@ I moduli ansible utilizzati nel prossimo esercizio sono:
 L'obiettivo del prossimo esercizio è completare l'implementazione del playbook creato nel Lab 1 in modo che possa copiare una `httpd.conf` e un `index.html` customizzato.
 Nell'esercizio andremo a recuperare l'httpd.conf installato con il prodotto e cambieremo la configurazione sul control node.
 
+
+>***Tip:*** A causa delle policy SELinux attive, non è possibile associare al servizio http una port diversa dalla porta 80.
+>Per superare il problema senza andare a modificare le policy SELinux, prima di eseguire il playbook indicato nell'esercizio disabilitare temporaneamente SELinux con il comando:
+>* `ssh pweb01.example.com 'sudo setenforce 0'`
+
 >**Esercizio 1**
 >1. Spostarsi nella directory `lab3` e creare la directory `files` sul control node.
 >2. Usando il comando Linux `scp <host>:<path file remoto> <path locale>`, recuperare dal managed host `pweb01.example.com` il file `/etc/httpd/conf/httpd.conf` e copiarlo localmente nella directory `files`.
@@ -37,8 +42,7 @@ Nell'esercizio andremo a recuperare l'httpd.conf installato con il prodotto e ca
 > 9. Impostare *manualmente* i permessi del file remoto `/etc/httpd/conf/httpd.conf` a `777` (`ssh pweb01.example.com 'sudo chmod 777 /etc/httpd/conf/httpd.conf'`)
 > 10. Rieseguire il playbook ed osservare il log di esecuzione
 >
->***Tip:*** A causa delle policy SELinux attive, non è possibile associare al servizio http una port diversa dalla porta 80.
->Per superare il problema senza andare a modificare le policy SELinux, prima di eseguire il playbook disabilitare temporaneamente SELinux con il comando `ssh pweb01.example.com 'sudo setenforce 0'`
+
 
 
 **Configurazione dinamica dei file**
@@ -54,7 +58,7 @@ E' sufficiente sapere che all'interno di un template una variabile ansible deve 
 >**Esercizio 2**
 >1. Spostarsi nella directory `lab3` e creare la directory `templates` sul control node. 
 >2. Copiare il file `files/httpd.conf` nella nuova directory e aggiungendo il suffisso .j2 `templates/httpd.conf.j2`
->3. Modificare il file `templates/httpd.conf.j2` sostituendo la porta `9080` con la variabile ansible `http_port`.
+>3. Modificare il file `templates/httpd.conf.j2` sostituendo la porta `9080` con la variabile ansible `http_port` (configurata nell'inventory).
 >4. Modificare il playbook install_webserver.yml già presente nella directory `lab3` in modo da:
 >   * sostituire il task di copia del file `files/httpd.conf`, con il task template mantenendo lo stesso path destinatario e prendendo come source il template `templates/httpd.conf.j2`
 >   * modificare il task per la creazione del file `/usr/share/httpd/noindex/index.html`, aggiungendo in coda al contenuto il valore dei fact che riportano l'fqdn e l'ip address del managed host.

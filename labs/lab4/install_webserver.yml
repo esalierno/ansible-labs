@@ -1,0 +1,37 @@
+---
+# file: install_webserver.yml
+# Play 1: Enable apache httpd service
+#         Install httpd package, enable and start httpd service
+
+- name: Enable apache httpd service
+  hosts: 'pweb01.example.com'
+  become: yes
+
+  tasks:
+    - name: Install httpd package
+      ansible.builtin.yum:
+        name: httpd
+        state: present
+
+    - name: Configure & copy httpd.conf
+      ansible.builtin.template:
+        src: templates/httpd.conf.j2
+        dest: /etc/httpd/conf/httpd.conf
+
+    - name: Set permissions on /etc/httpd/conf/httpd.conf
+      ansible.builtin.file:
+        path: /etc/httpd/conf/httpd.conf
+        owner: root
+        group: root
+        mode: '644'
+
+    - name: Copy index.html
+      ansible.builtin.copy:
+        content: 'Welcome to my Web Server {{ ansible_fqdn }} - {{ ansible_eth0.ipv4.address }}'
+        dest: /usr/share/httpd/noindex/index.html
+
+    - name: Enable and restart httpd service 
+      ansible.builtin.service:
+        name: httpd
+        enabled: yes
+        state: restarted

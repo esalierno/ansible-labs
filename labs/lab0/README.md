@@ -67,7 +67,7 @@ Ogni managed host deve soddisfare i seguenti requisiti affinchè possa essere ge
 Tipicamente tali requisiti saranno indirizzati in fase di provisioning dei sistemi.
 
 Per verificare tali requisiti è possibile usare il modulo ansible `ansible.builtin.ping`, se il modulo viene eseguito correttamente allora è possibile gestire l'host target con ansible.
-Come tutti i moduli ansible, anche il modulo pingo può essere usato come un **ansible ad hoc command** ([Introduction to ad hoc commands](https://docs.ansible.com/ansible/latest/user_guide/intro_adhoc.html)). Tale modalità è comoda per l'esecuzione di comandi singoli su uno o su tutti gli host presenti nell'inventory.
+Come tutti i moduli ansible, anche il modulo `ping` può essere usato come un **ansible ad hoc command** ([Introduction to ad hoc commands](https://docs.ansible.com/ansible/latest/user_guide/intro_adhoc.html)). Tale modalità è comoda per l'esecuzione di comandi singoli su uno o su tutti gli host presenti nell'inventory.
 
 Spostarsi nella directory labs/lab0 e provare ad eseguire il modulo ping per l'host `pweb01.example.com`.
 
